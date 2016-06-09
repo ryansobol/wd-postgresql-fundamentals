@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
       gluten_free_at: null,
       created_at: new Date(),
       updated_at: new Date()
-    })
+    }),
 
     knex('dishes').insert({
       id: 2,
