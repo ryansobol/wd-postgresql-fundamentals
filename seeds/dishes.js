@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
       restaurant_id: 1,
       name: 'Melinda\'s salad blend',
       description: 'This salad is good for the non-carne among you.',
-      cost: 'American',
+      cost: 8.43,
       vegetarian_at: new Date(1977, 3, 1),
       gluten_free_at: new Date(1977, 3, 1),
       created_at: new Date(),
