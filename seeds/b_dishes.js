@@ -25,6 +25,18 @@ exports.seed = function(knex, Promise) {
       gluten_free_at: new Date(1977, 3, 1),
       created_at: new Date(),
       updated_at: new Date()
+    }),
+
+    knex('dishes').insert({
+      id: 3,
+      restaurant_id: 2,
+      name: 'Danny Boy\'s Pad Thai Pie',
+      description: 'Quite a unique dish, this is a fusion of classic pad Thai inside of a pot pie. Yum and gluten-free! (Somehow)',
+      cost: 7.75,
+      vegetarian_at: null,
+      gluten_free_at: new Date(),
+      created_at: new Date(),
+      updated_at: new Date()
     })
     // knex('restaurants').insert({
     //   id: 2,
