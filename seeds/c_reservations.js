@@ -1,12 +1,18 @@
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
-    // Deletes ALL existing entries
-    //knex('table_name').del(),
+    knex('reservations').del(),
 
-    //// Inserts seed entries
-    //knex('table_name').insert({id: 1, colName: 'rowValue'}),
-    //knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-    //knex('table_name').insert({id: 3, colName: 'rowValue3'})
+    knex('reservations').insert({
+      id: 1,
+      customer_id: 1,
+      restaurant_id: 1,
+      wants_vegetarian: false,
+      wants_gluten_free: true,
+      confirmed_at: new Date(),
+      created_at: new Date(),
+      updated_at: new Date()
+    })
+
   );
 };
