@@ -50,24 +50,42 @@ module.exports.seed = function(knex, Promise) {
       phone: '206-555-0990',
       created_at: new Date(),
       updated_at: new Date()
-    })
+    }),
 
-    // knex('locations').insert({
-    //   id: 2,
-    //   name: '',
-    //   kind: '',
-    //   bio: '',
-    //   dollars: '',
-    //   opened_at: new Date()
-    // }),
-    //
-    // knex('locations').insert({
-    //   id: 3,
-    //   name: '',
-    //   kind: '',
-    //   bio: '',
-    //   dollars: '',
-    //   opened_at: new Date()
-    // })
+    knex('locations').insert({
+      id: 5,
+      restaurant_id: 4,
+      street: '5280 Mile High Drive',
+      city: 'Olympia',
+      state: 'WA',
+      zipcode: '98504',
+      phone: '206-555-8787',
+      created_at: new Date(),
+      updated_at: new Date()
+    }),
+
+    knex('locations').insert({
+      id: 6,
+      restaurant_id: 5,
+      street: '789 Square Circle',
+      city: 'Seattle',
+      state: 'WA',
+      zipcode: '98108',
+      phone: '206-555-9999',
+      created_at: new Date(),
+      updated_at: new Date()
+    }),
+
+    knex('locations').insert({
+      id: 7,
+      restaurant_id: 4,
+      street: '2001 Space Boulevard',
+      city: 'Tacoma',
+      state: 'WA',
+      zipcode: '98401',
+      phone: '206-555-1212',
+      created_at: new Date(),
+      updated_at: new Date()
+    })
   );
 };

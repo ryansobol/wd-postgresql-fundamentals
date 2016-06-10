@@ -62,6 +62,42 @@ module.exports.seed = function(knex, Promise) {
       gluten_free_at: new Date(),
       created_at: new Date(),
       updated_at: new Date()
+    }),
+
+    knex('dishes').insert({
+      id: 6,
+      restaurant_id: 4,
+      name: 'Orange Chicken Crossroads',
+      description: 'Delicious citrus flavors served across an avenue of broccoli and carrots.',
+      cost: 11.25,
+      vegetarian_at: null,
+      gluten_free_at: null,
+      created_at: new Date(),
+      updated_at: new Date()
+    }),
+
+    knex('dishes').insert({
+      id: 7,
+      restaurant_id: 5,
+      name: 'Meatspheres a la Benny',
+      description: 'Traditional Italian meatballs with a special secret ingredient you\'ll never be able to guess! Just kidding, it\'s meat.',
+      cost: 9.50,
+      vegetarian_at: null,
+      gluten_free_at: null,
+      created_at: new Date(),
+      updated_at: new Date()
+    }),
+
+    knex('dishes').insert({
+      id: 8,
+      restaurant_id: 5,
+      name: 'Vegetarian Meatball Sammie',
+      description: 'Delicious Italian bread loaded up with a twist on our classic meatspheres, we use Tofurkey instead!',
+      cost: 12.00,
+      vegetarian_at: new Date(),
+      gluten_free_at: null,
+      created_at: new Date(),
+      updated_at: new Date()
     })
 
   );
