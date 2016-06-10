@@ -1,12 +1,17 @@
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
-    // Deletes ALL existing entries
-    //knex('table_name').del(),
+    knex('reviews').del(),
 
-    //// Inserts seed entries
-    //knex('table_name').insert({id: 1, colName: 'rowValue'}),
-    //knex('table_name').insert({id: 2, colName: 'rowValue2'}),
-    //knex('table_name').insert({id: 3, colName: 'rowValue3'})
+    knex('reviews').insert({
+      id: 1,
+      customer_id: 1,
+      restaurant_id: 1,
+      rating: '2',
+      comment: 'The killer chili dawg was not kidding around. It killed my spirit and because of that I will not be returning to Hal\'s',
+      created_at: new Date(),
+      updated_at: new Date()
+    })
+
   );
 };
