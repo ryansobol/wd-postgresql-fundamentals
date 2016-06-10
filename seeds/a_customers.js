@@ -1,6 +1,6 @@
 'use strict';
 
-exports.seed = function(knex, Promise) {
+module.exports.seed = function(knex, Promise) {
   return Promise.join(
     knex('customers').del(),
 

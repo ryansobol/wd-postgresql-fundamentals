@@ -1,6 +1,6 @@
 'use strict';
 
-exports.up = function(knex, Promise) {
+module.exports.up = function(knex, Promise) {
   return knex.schema.createTable('reviews', function(table) {
     table.increments('id');
     table.integer('customer_id')
@@ -17,6 +17,6 @@ exports.up = function(knex, Promise) {
   });
 };
 
-exports.down = function(knex, Promise) {
+module.exports.down = function(knex, Promise) {
   return knex.schema.dropTable('reviews');
 };
