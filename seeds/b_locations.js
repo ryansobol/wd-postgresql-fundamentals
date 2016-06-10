@@ -12,8 +12,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98109',
       phone: '206-555-1234',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -24,8 +24,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98401',
       phone: '206-555-5678',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -36,8 +36,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98501',
       phone: '206-555-8329',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -48,8 +48,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98107',
       phone: '206-555-0990',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -60,8 +60,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98504',
       phone: '206-555-8787',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -72,8 +72,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98108',
       phone: '206-555-9999',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     }),
 
     knex('locations').insert({
@@ -84,8 +84,8 @@ module.exports.seed = function(knex, Promise) {
       state: 'WA',
       zipcode: '98401',
       phone: '206-555-1212',
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: new Date(2000, 5, 20),
+      updated_at: new Date(2000, 5, 20)
     })
   );
 };
