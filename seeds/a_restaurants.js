@@ -8,7 +8,7 @@ module.exports.seed = function(knex, Promise) {
       id: 1,
       name: "Hal's Hot Dawg Stand",
       kind: 'American',
-      bio: 'Hal\'s is the place for all your burgers and dawg needs. We have shakes galore!',
+      bio: "Hal's is the place for all your burgers and dawg needs.",
       dollars: '1',
       opened_at: new Date(1977, 3, 1),
       created_at: new Date(2000, 5, 20),

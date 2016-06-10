@@ -47,28 +47,14 @@ suite('index', function() {
     });
   });
 
-  test('find customer names', () => {
-    const actual = index.selectCustomerNames(knex);
-    const expected = [
-      { name: 'Johnny Walker' },
-      { name: 'Percy DoLittle' },
-      { name: "Rainbow Huff'n'Puff" },
-      { name: 'Prince' },
-      { name: 'Sue "McGonnigal" Samwortherton' },
-      { name: 'Little baby Tomkins' }
-    ];
-
-    return assert.eventually.sameDeepMembers(actual, expected);
-  });
-
-  test('find restaurants', () => {
+  test('select all restaurants', () => {
     const actual = index.selectAllRestaurants(knex);
     const expected = [
       {
         id: 1,
         name: "Hal's Hot Dawg Stand",
         kind: 'American',
-        bio: 'Hal\'s is the place for all your burgers and dawg needs. We have shakes galore!',
+        bio: "Hal's is the place for all your burgers and dawg needs.",
         dollars: '1',
         opened_at: new Date(1977, 3, 1),
         created_at: new Date(2000, 5, 20),
@@ -119,7 +105,21 @@ suite('index', function() {
     return assert.eventually.sameDeepMembers(actual, expected);
   });
 
-  test('select unique customer', () => {
+  test('select all customer names', () => {
+    const actual = index.selectAllCustomerNames(knex);
+    const expected = [
+      { name: 'Johnny Walker' },
+      { name: 'Percy DoLittle' },
+      { name: "Rainbow Huff'n'Puff" },
+      { name: 'Prince' },
+      { name: 'Sue "McGonnigal" Samwortherton' },
+      { name: 'Little baby Tomkins' }
+    ];
+
+    return assert.eventually.sameDeepMembers(actual, expected);
+  });
+
+  test('select customer by id', () => {
     const actual = index.selectCustomerById(knex);
     const expected = [
       {
@@ -134,8 +134,8 @@ suite('index', function() {
     return assert.eventually.deepEqual(actual, expected);
   });
 
-  test('select unique city', () => {
-    const actual = index.selectCityById(knex);
+  test('select location by id', () => {
+    const actual = index.selectLocationById(knex);
     const expected = [
       {
         id: 3,
@@ -153,13 +153,16 @@ suite('index', function() {
     return assert.eventually.deepEqual(actual, expected);
   });
 
-  test('select number of distinct cities', () => {
-    const actual = index.selectNumberOfDistinctCities(knex);
-    const expected = [
-      {
-        count: '3'
-      }
-    ];
+  test('select count of location cities', () => {
+    const actual = index.selectCountOfLocationCities(knex);
+    const expected = [{ count: '7' }];
+
+    return assert.eventually.deepEqual(actual, expected);
+  });
+
+  test('select distinct count of location cities', () => {
+    const actual = index.selectDistinctCountOfLocationCities(knex);
+    const expected = [{ count: '3' }];
 
     return assert.eventually.deepEqual(actual, expected);
   });
@@ -172,7 +175,7 @@ suite('index', function() {
         restaurant_id: 1,
         name: 'the killer chili dawg',
         description: 'The ULTIMATE test.',
-        cost: 7.65,
+        cost: '7.65',
         vegetarian_at: null,
         gluten_free_at: null,
         created_at: new Date(2000, 5, 20),
@@ -180,6 +183,6 @@ suite('index', function() {
       }
     ];
 
-    return assert.eventually.sameDeepMembers(actual, expected);
+    return assert.eventually.deepEqual(actual, expected);
   });
 });
