@@ -13,4 +13,4 @@ createdb pgci
 ```
 
 [build-img]: https://img.shields.io/travis/ryansobol/pgci/master.svg?style=flat-square
-[build-url]: https://travis-ci.org/ryansobol/eslint-config-ryansobol
+[build-url]: https://travis-ci.org/ryansobol/pgci
