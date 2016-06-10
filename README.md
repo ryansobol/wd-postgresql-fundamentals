@@ -1,3 +1,5 @@
+[![Build][build-img]][build-url]
+
 ```shell
 git clone blah
 cd blah
@@ -9,3 +11,6 @@ createdb pgci
 ./node_modules/.bin/knex seed:make players
 ./node_modules/.bin/knex seed:run
 ```
+
+[build-img]: https://img.shields.io/travis/ryansobol/pgci/master.svg?style=flat-square
+[build-url]: https://travis-ci.org/ryansobol/eslint-config-ryansobol
