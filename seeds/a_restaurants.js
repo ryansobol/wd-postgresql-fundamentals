@@ -17,7 +17,7 @@ module.exports.seed = function(knex, Promise) {
 
      knex('restaurants').insert({
        id: 2,
-       name: 'McDouglas\'s Irish Fusion Cafe',
+       name: "McDouglas's Irish Fusion Cafe",
        kind: 'Irish/Thai',
        bio: "You can't believe what this amazing Thai Irish pub fusion creates. Trust us, you'll love it.",
        dollars: '2',

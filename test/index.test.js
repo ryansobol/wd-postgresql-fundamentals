@@ -13,7 +13,7 @@ const index = require('../lib/index');
 
 chai.use(chaiAsPromised);
 
-suite('index', function() {
+suite('index', () => {
   before(function(done) {
     knex.migrate.rollback()
     .then(() => {
@@ -62,9 +62,9 @@ suite('index', function() {
       },
       {
         id: 2,
-        name: 'McDouglas\'s Irish Fusion Cafe',
+        name: "McDouglas's Irish Fusion Cafe",
         kind: 'Irish/Thai',
-        bio: 'You can\'t believe what this amazing Thai Irish pub fusion creates. Trust us, you\'ll love it.',
+        bio: "You can't believe what this amazing Thai Irish pub fusion creates. Trust us, you'll love it.",
         dollars: '2',
         opened_at: new Date(2015,11,31),
         created_at: new Date(2000, 5, 20),
@@ -72,9 +72,9 @@ suite('index', function() {
       },
       {
         id: 3,
-        name: 'Joe\'s Burritos',
+        name: "Joe's Burritos",
         kind: 'Mexican',
-        bio: 'Not the best burrito in town, if you want better, try Jose\'s.',
+        bio: "Not the best burrito in town, if you want better, try Jose's.",
         dollars: '1',
         opened_at: new Date(1997, 7, 22),
         created_at: new Date(2000, 5, 20),
@@ -82,7 +82,7 @@ suite('index', function() {
       },
       {
         id: 4,
-        name: 'Chan\'s China Palace',
+        name: "Chan's China Palace",
         kind: 'Chinese',
         bio: 'A hidden gem in the Pacific Northwest. Upscale dining with an incredible menu and great wait staff.',
         dollars: '4',
@@ -92,7 +92,7 @@ suite('index', function() {
       },
       {
         id: 5,
-        name: 'Benny\'s Meatballs',
+        name: "Benny's Meatballs",
         kind: 'Italian',
         bio: 'The best meatballs in town! Affordable and tasty, these meatballs will have you coming back for more.',
         dollars: '3',
@@ -100,6 +100,19 @@ suite('index', function() {
         created_at: new Date(2000, 5, 20),
         updated_at: new Date(2000, 5, 20)
       }
+    ];
+
+    return assert.eventually.sameDeepMembers(actual, expected);
+  });
+
+  test('select all restaurant names', () => {
+    const actual = index.selectAllRestaurantNames(knex);
+    const expected = [
+      { name: "Hal's Hot Dawg Stand" },
+      { name: "McDouglas's Irish Fusion Cafe" },
+      { name: "Joe's Burritos" },
+      { name: "Chan's China Palace" },
+      { name: "Benny's Meatballs" }
     ];
 
     return assert.eventually.sameDeepMembers(actual, expected);
@@ -182,6 +195,18 @@ suite('index', function() {
         updated_at: new Date(2000, 5, 20)
       }
     ];
+
+    return assert.eventually.deepEqual(actual, expected);
+  });
+
+  // TODO: still need to create a test for updateCustomerName
+
+  test('update dish with chicken', () => {
+    // TODO: this needs to test the properties of the updated dish not the
+    // response code
+
+    const actual = index.updateDishWithChx(knex);
+    const expected = 1;
 
     return assert.eventually.deepEqual(actual, expected);
   });
