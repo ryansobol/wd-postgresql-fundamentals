@@ -22,7 +22,7 @@ module.exports.seed = function(knex, Promise) {
 
     knex('customers').insert({
       id: 3,
-      name: 'Rainbow Huff\'n\'Puff',
+      name: "Rainbow Huff'n'Puff",
       email: 'after1234@aol.com',
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)

@@ -9,7 +9,7 @@ module.exports.seed = function(knex, Promise) {
       customer_id: 1,
       restaurant_id: 1,
       rating: '2',
-      comment: 'The killer chili dawg was not kidding around. It killed my spirit and because of that I will not be returning to Hal\'s',
+      comment: "The killer chili dawg was not kidding around. It killed my spirit and because of that I will not be returning to Hal's",
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)
     }),
@@ -19,7 +19,7 @@ module.exports.seed = function(knex, Promise) {
       customer_id: 2,
       restaurant_id: 3,
       rating: '4',
-      comment: 'Joe\'s burrito is one of the best I\'ve had in town! I can\'t wait to tell all my friends about it!',
+      comment: "Joe's burrito is one of the best I've had in town! I can't wait to tell all my friends about it!",
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)
     }),
@@ -29,7 +29,7 @@ module.exports.seed = function(knex, Promise) {
       customer_id: 3,
       restaurant_id: 2,
       rating: '1',
-      comment: 'Danny Boy\'s Pad Thai Pie was one of the most revolting things I\'ve ever had the displeasure of eating. I do not recommend.',
+      comment: "Danny Boy's Pad Thai Pie was one of the most revolting things I've ever had the displeasure of eating. I do not recommend.",
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)
     }),
@@ -39,7 +39,7 @@ module.exports.seed = function(knex, Promise) {
       customer_id: 4,
       restaurant_id: 3,
       rating: '5',
-      comment: 'The Mosquito Burrito was incredible! I can\'t wait to go back to Joe\'s again and try the rest of their menu!',
+      comment: "The Mosquito Burrito was incredible! I can't wait to go back to Joe's again and try the rest of their menu!",
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)
     }),
@@ -49,7 +49,7 @@ module.exports.seed = function(knex, Promise) {
       customer_id: 5,
       restaurant_id: 1,
       rating: '2',
-      comment: 'Hal\'s is one of my least favorite places. The staff was rude and I definitely saw some ants! I do not recommmend.',
+      comment: "Hal's is one of my least favorite places. The staff was rude and I definitely saw some ants! I do not recommmend.",
       created_at: new Date(2000, 5, 20),
       updated_at: new Date(2000, 5, 20)
     }),

@@ -19,7 +19,7 @@ module.exports.seed = function(knex, Promise) {
     knex('dishes').insert({
       id: 2,
       restaurant_id: 1,
-      name: 'Melinda\'s salad blend',
+      name: "Melinda's salad blend",
       description: 'This salad is good for the non-carne among you.',
       cost: 8.43,
       vegetarian_at: new Date(1977, 3, 1),
@@ -31,7 +31,7 @@ module.exports.seed = function(knex, Promise) {
     knex('dishes').insert({
       id: 3,
       restaurant_id: 2,
-      name: 'Danny Boy\'s Pad Thai Pie',
+      name: "Danny Boy's Pad Thai Pie",
       description: 'Quite a unique dish, this is a fusion of classic pad Thai inside of a pot pie. Yummy and gluten-free! (Somehow)',
       cost: 7.75,
       vegetarian_at: null,
@@ -80,7 +80,7 @@ module.exports.seed = function(knex, Promise) {
       id: 7,
       restaurant_id: 5,
       name: 'Meatspheres a la Benny',
-      description: 'Traditional Italian meatballs with a special secret ingredient you\'ll never be able to guess! Just kidding, it\'s meat.',
+      description: "Traditional Italian meatballs with a special secret ingredient you'll never be able to guess! Just kidding, it's meat.",
       cost: 9.50,
       vegetarian_at: null,
       gluten_free_at: null,
