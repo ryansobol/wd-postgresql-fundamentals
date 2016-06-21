@@ -5,4 +5,5 @@ services:
   - postgresql
 before_script:
   - createdb yowl_part1 -U postgres
+  - createdb yowl_part2 -U postgres
   - createdb yowl_part4 -U postgres
