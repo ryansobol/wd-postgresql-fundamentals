@@ -15,7 +15,7 @@ chai.use(chaiAsPromised);
 
 suite('index', () => {
   before(function(done) {
-    knex.migrate.rollback()
+    knex.migrate.latest()
     .then(() => {
       done();
     })
@@ -25,20 +25,7 @@ suite('index', () => {
   });
 
   beforeEach(function(done) {
-    knex.migrate.latest()
-    .then(() => {
-      return knex.seed.run();
-    })
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
-  });
-
-  afterEach(function(done) {
-    knex.migrate.rollback()
+    knex.seed.run()
     .then(() => {
       done();
     })
@@ -201,30 +188,41 @@ suite('index', () => {
 
   // TODO: write insert tests here
 
-  test('update customer name', () => {
-    index.updateCustomerName(knex).then(() => {
-      knex('customers').select()
-      .where('name', 'Little baby Tomkins')
-      .then((actual) => {
-        assert.deepEqual(actual, []);
-      });
+  test('update customer name', (done) => {
+    index.updateCustomerName(knex)
+      .then((updateActual) => {
+        return assert.equal(updateActual, 1);
+      })
+      .then(() => {
+        return knex('customers').select()
+          .where('name', 'Little baby Tomkins')
+          .then((actual) => {
+            return assert.deepEqual(actual, []);
+          });
+      })
+      .then(() => {
+        return knex('customers').select()
+          .where('name', 'Big Tom Tomkins')
+          .then((actual) => {
+            const expected = [
+              {
+                id: 6,
+                name: 'Big Tom Tomkins',
+                email: 'whaaaaa@ups.com',
+                created_at: new Date('2000-05-20 00:00:00 UTC'),
+                updated_at: new Date('2000-05-20 00:00:00 UTC')
+              }
+            ];
 
-      knex('customers').select()
-      .where('name', 'Big Tom Tomkins')
-      .then((actual) => {
-        const expected = [
-          {
-            id: 6,
-            name: 'Big Tom Tomkins',
-            email: 'whaaaaa@ups.com',
-            created_at: new Date('2000-05-20 00:00:00 UTC'),
-            updated_at: new Date('2000-05-20 00:00:00 UTC')
-          }
-        ];
-
-        assert.deepEqual(actual, expected);
+            return assert.deepEqual(actual, expected);
+          });
+      })
+      .then(() => {
+        done();
+      })
+      .catch((err) => {
+        done(err);
       });
-    });
   });
 
   test('update location by id', () => {
