@@ -1,13 +1,8 @@
 'use strict';
 
 module.exports = {
-  development: {
+  part4: {
     client: 'pg',
-    connection: 'postgres://localhost/yowl'
-  },
-
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL
+    connection: 'postgres://localhost/yowl_part4'
   }
 };
