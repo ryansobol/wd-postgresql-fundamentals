@@ -2,7 +2,7 @@
   "name": "wd-yowl",
   "version": "0.1.0",
   "description": "PostgreSQL Continuous Integration",
-  "main": "index.js",
+  "main": "lib/part4.js",
   "scripts": {
     "test": "mocha"
   },

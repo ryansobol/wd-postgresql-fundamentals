@@ -9,11 +9,11 @@ const env = 'part4';
 const knexConfig = require('../knexfile')[env];
 const knex = require('knex')(knexConfig);
 
-const index = require('../lib/index');
+const part = require('../lib/part4');
 
 chai.use(chaiAsPromised);
 
-suite('index', () => {
+suite('part4', () => {
   before(function(done) {
     knex.migrate.latest()
       .then(() => {
@@ -35,7 +35,7 @@ suite('index', () => {
   });
 
   test('select all restaurants', () => {
-    const actual = index.selectAllRestaurants(knex);
+    const actual = part.selectAllRestaurants(knex);
     const expected = [
       {
         id: 1,
@@ -93,7 +93,7 @@ suite('index', () => {
   });
 
   test('select all restaurant names', () => {
-    const actual = index.selectAllRestaurantNames(knex);
+    const actual = part.selectAllRestaurantNames(knex);
     const expected = [
       { name: "Hal's Hot Dawg Stand" },
       { name: "McDouglas's Irish Fusion Cafe" },
@@ -106,7 +106,7 @@ suite('index', () => {
   });
 
   test('select all customer names', () => {
-    const actual = index.selectAllCustomerNames(knex);
+    const actual = part.selectAllCustomerNames(knex);
     const expected = [
       { name: 'Johnny Walker' },
       { name: 'Percy DoLittle' },
@@ -120,7 +120,7 @@ suite('index', () => {
   });
 
   test('select customer by id', () => {
-    const actual = index.selectCustomerById(knex);
+    const actual = part.selectCustomerById(knex);
     const expected = [
       {
         id: 1,
@@ -135,7 +135,7 @@ suite('index', () => {
   });
 
   test('select location by id', () => {
-    const actual = index.selectLocationById(knex);
+    const actual = part.selectLocationById(knex);
     const expected = [
       {
         id: 3,
@@ -154,21 +154,21 @@ suite('index', () => {
   });
 
   test('select count of location cities', () => {
-    const actual = index.selectCountOfLocationCities(knex);
+    const actual = part.selectCountOfLocationCities(knex);
     const expected = [{ count: '7' }];
 
     return assert.eventually.deepEqual(actual, expected);
   });
 
   test('select distinct count of location cities', () => {
-    const actual = index.selectDistinctCountOfLocationCities(knex);
+    const actual = part.selectDistinctCountOfLocationCities(knex);
     const expected = [{ count: '3' }];
 
     return assert.eventually.deepEqual(actual, expected);
   });
 
   test('select cheapest dish', () => {
-    const actual = index.selectCheapestDish(knex);
+    const actual = part.selectCheapestDish(knex);
     const expected = [
       {
         id: 1,
@@ -189,7 +189,7 @@ suite('index', () => {
   // TODO: write insert tests here
 
   test('update customer name', (done) => {
-    index.updateCustomerName(knex)
+    part.updateCustomerName(knex)
       .then((updateActual) => {
         return assert.equal(updateActual, 1);
       })
@@ -226,35 +226,35 @@ suite('index', () => {
   });
 
   test('update location by id', () => {
-    const actual = index.updateLocationById(knex);
+    const actual = part.updateLocationById(knex);
     const expected = 1;
 
     return assert.eventually.equal(actual, expected);
   });
 
   test('update dish with chicken', () => {
-    const actual = index.updateDishWithChx(knex);
+    const actual = part.updateDishWithChx(knex);
     const expected = 1;
 
     return assert.eventually.equal(actual, expected);
   });
 
   test('delete customer', () => {
-    const actual = index.deleteCustomer(knex);
+    const actual = part.deleteCustomer(knex);
     const expected = 1;
 
     return assert.eventually.equal(actual, expected);
   });
 
   test('delete restaurants by dollar', () => {
-    const actual = index.deleteRestaurantsByDollar(knex);
+    const actual = part.deleteRestaurantsByDollar(knex);
     const expected = 2;
 
     return assert.eventually.equal(actual, expected);
   });
 
   test('delete all vegetarian dishes', () => {
-    const actual = index.deleteAllVegetarianDishes(knex);
+    const actual = part.deleteAllVegetarianDishes(knex);
     const expected = 2;
 
     return assert.eventually.equal(actual, expected);
