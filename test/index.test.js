@@ -16,22 +16,22 @@ chai.use(chaiAsPromised);
 suite('index', () => {
   before(function(done) {
     knex.migrate.latest()
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
+      .then(() => {
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
   });
 
   beforeEach(function(done) {
     knex.seed.run()
-    .then(() => {
-      done();
-    })
-    .catch((err) => {
-      done(err);
-    });
+      .then(() => {
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
   });
 
   test('select all restaurants', () => {
@@ -229,34 +229,34 @@ suite('index', () => {
     const actual = index.updateLocationById(knex);
     const expected = 1;
 
-    return assert.eventually.deepEqual(actual, expected);
+    return assert.eventually.equal(actual, expected);
   });
 
   test('update dish with chicken', () => {
     const actual = index.updateDishWithChx(knex);
     const expected = 1;
 
-    return assert.eventually.deepEqual(actual, expected);
+    return assert.eventually.equal(actual, expected);
   });
 
   test('delete customer', () => {
     const actual = index.deleteCustomer(knex);
     const expected = 1;
 
-    return assert.eventually.deepEqual(actual, expected);
+    return assert.eventually.equal(actual, expected);
   });
 
   test('delete restaurants by dollar', () => {
     const actual = index.deleteRestaurantsByDollar(knex);
     const expected = 2;
 
-    return assert.eventually.deepEqual(actual, expected);
+    return assert.eventually.equal(actual, expected);
   });
 
   test('delete all vegetarian dishes', () => {
     const actual = index.deleteAllVegetarianDishes(knex);
     const expected = 2;
 
-    return assert.eventually.deepEqual(actual, expected);
+    return assert.eventually.equal(actual, expected);
   });
 });
