@@ -6,6 +6,7 @@ const chaiAsPromised = require('chai-as-promised');
 const {suite, test} = require('mocha');
 
 const env = process.env.NODE_ENV || 'development';
+console.log(env);
 const knexConfig = require('../knexfile')[env];
 const knex = require('knex')(knexConfig);
 
