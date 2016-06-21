@@ -3,12 +3,12 @@
 module.exports = {
   part1: {
     client: 'pg',
-    connection: 'postgres://localhost/yowl_part1'
+    connection: 'postgres://localhost/pg_fun_part1'
   },
 
   part2: {
     client: 'pg',
-    connection: 'postgres://localhost/yowl_part2',
+    connection: 'postgres://localhost/pg_fun_part2',
     migrations: {
       directory: './migrations/part2'
     },
@@ -19,7 +19,7 @@ module.exports = {
 
   part4: {
     client: 'pg',
-    connection: 'postgres://localhost/yowl_part4',
+    connection: 'postgres://localhost/pg_fun_part4',
     migrations: {
       directory: './migrations/part4'
     },

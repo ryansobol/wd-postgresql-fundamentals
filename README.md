@@ -5,9 +5,9 @@ Fork and clone.
 ```shell
 cd wd-postgresql-fundamentals
 npm install
-createdb yowl_part1
-createdb yowl_part2
-createdb yowl_part4
+createdb pg_fun_part1
+createdb pg_fun_part2
+createdb pg_fun_part4
 npm test
 ```
 
