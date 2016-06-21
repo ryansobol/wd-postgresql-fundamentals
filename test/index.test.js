@@ -207,22 +207,26 @@ suite('index', () => {
     index.updateCustomerName(knex).then(() => {
       knex('customers').select()
       .where('name', 'Little baby Tomkins')
-      .then((res) => {
-        if (res) {
-          // test fails
-          return;
-        } else {
-          knex('customers').select()
-          .where('name', 'Big Tom Tomkins').then((row) => {
-            console.log(row);
-          });
-        }
+      .then((actual) => {
+        assert.deepEqual(actual, []);
+      });
+
+      knex('customers').select()
+      .where('name', 'Big Tom Tomkins')
+      .then((actual) => {
+        const expected = [
+          {
+            id: 6,
+            name: 'Big Tom Tomkins',
+            email: 'whaaaaa@ups.com',
+            created_at: new Date('2000-05-20 00:00:00 UTC'),
+            updated_at: new Date('2000-05-20 00:00:00 UTC')
+          }
+        ];
+
+        assert.deepEqual(actual, expected);
       });
     });
-    const actual = index.updateCustomerName(knex);
-    const expected = 1;
-
-    return assert.eventually.deepEqual(actual, expected);
   });
 
   test('update location by id', () => {
