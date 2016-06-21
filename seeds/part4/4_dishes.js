@@ -22,8 +22,8 @@ module.exports.seed = function(knex, Promise) {
         name: "Melinda's salad blend",
         description: 'This salad is good for the non-carne among you.',
         cost: 8.43,
-        vegetarian_at: new Date(1977, 3, 1),
-        gluten_free_at: new Date(1977, 3, 1),
+        vegetarian_at: new Date('1977-03-01 00:00:00 UTC'),
+        gluten_free_at: new Date('1977-03-01 00:00:00 UTC'),
         created_at: new Date('2000-05-20 00:00:00 UTC'),
         updated_at: new Date('2000-05-20 00:00:00 UTC')
       });

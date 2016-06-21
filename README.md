@@ -5,6 +5,7 @@ Fork and clone.
 ```shell
 cd wd-yowl
 npm install
+createdb yowl_part1
 createdb yowl_part4
 npm test
 ```

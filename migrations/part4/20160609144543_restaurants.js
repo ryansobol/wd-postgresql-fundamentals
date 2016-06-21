@@ -6,7 +6,7 @@ module.exports.up = function(knex, Promise) {
     table.string('name');
     table.string('kind');
     table.text('bio');
-    table.enu('dollars', ['1', '2', '3', '4', '5']);
+    table.integer('dollars');
     table.timestamp('opened_at');
     table.timestamps();
   });
