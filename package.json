@@ -1,5 +1,5 @@
 {
-  "name": "pgci",
+  "name": "wd-yowl",
   "version": "0.1.0",
   "description": "PostgreSQL Continuous Integration",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryansobol/pgci.git"
+    "url": "git+https://github.com/ryansobol/wd-yowl.git"
   },
   "keywords": [
     "pg",
@@ -20,9 +20,9 @@
   "author": "Ryan Sobol",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ryansobol/pgci/issues"
+    "url": "https://github.com/ryansobol/wd-yowl/issues"
   },
-  "homepage": "https://github.com/ryansobol/pgci#readme",
+  "homepage": "https://github.com/ryansobol/wd-yowl#readme",
   "dependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.3.0",
