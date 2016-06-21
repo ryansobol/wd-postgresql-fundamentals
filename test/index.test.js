@@ -201,8 +201,6 @@ suite('index', () => {
 
   // TODO: write insert tests here
 
-  // TODO: update queries need to test the data that was updated, not response
-  // text
   test('update customer name', () => {
     index.updateCustomerName(knex).then(() => {
       knex('customers').select()
@@ -245,14 +243,14 @@ suite('index', () => {
 
   test('delete customer', () => {
     const actual = index.deleteCustomer(knex);
-    const expected = '';
+    const expected = 1;
 
     return assert.eventually.deepEqual(actual, expected);
   });
 
   test('delete restaurants by dollar', () => {
     const actual = index.deleteRestaurantsByDollar(knex);
-    const expected = '';
+    const expected = 2;
 
     return assert.eventually.deepEqual(actual, expected);
   });

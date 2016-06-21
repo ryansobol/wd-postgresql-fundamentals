@@ -6,6 +6,7 @@ module.exports.up = function(knex, Promise) {
     table.integer('restaurant_id')
       .references('id')
       .inTable('restaurants')
+      .onDelete('CASCADE')
       .index();
     table.string('name');
     table.text('description');

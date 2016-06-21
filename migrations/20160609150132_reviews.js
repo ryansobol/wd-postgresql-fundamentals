@@ -6,10 +6,12 @@ module.exports.up = function(knex, Promise) {
     table.integer('customer_id')
       .references('id')
       .inTable('customers')
+      .onDelete('CASCADE')
       .index();
     table.integer('restaurant_id')
       .references('id')
       .inTable('restaurants')
+      .onDelete('CASCADE')
       .index();
     table.enu('rating', ['1', '2', '3', '4', '5']);
     table.text('comment');
