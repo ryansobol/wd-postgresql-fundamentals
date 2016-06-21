@@ -30,7 +30,11 @@ suite('part1', () => {
     knex.raw(part.createCustomers())
       .then(() => {
         return knex.raw(`
-          SELECT column_name, data_type, is_nullable
+          SELECT
+            column_name,
+            data_type,
+            is_nullable,
+            character_maximum_length
           FROM information_schema.columns
           WHERE table_name='customers';
         `);
@@ -42,22 +46,27 @@ suite('part1', () => {
             column_name: 'id',
             data_type: 'integer',
             is_nullable: 'NO',
+            character_maximum_length: null
           }, {
             column_name: 'name',
             data_type: 'character varying',
             is_nullable: 'YES',
+            character_maximum_length: 255
           }, {
             column_name: 'email',
             data_type: 'character varying',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: 255
           }, {
             column_name: 'created_at',
             data_type: 'timestamp with time zone',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }, {
             column_name: 'updated_at',
             data_type: 'timestamp with time zone',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }
         ];
 
@@ -79,7 +88,11 @@ suite('part1', () => {
     knex.raw(part.createRestaurants())
       .then(() => {
         return knex.raw(`
-          SELECT column_name, data_type, is_nullable
+          SELECT
+            column_name,
+            data_type,
+            is_nullable,
+            character_maximum_length
           FROM information_schema.columns
           WHERE table_name='restaurants';
         `);
@@ -91,34 +104,42 @@ suite('part1', () => {
             column_name: 'id',
             data_type: 'integer',
             is_nullable: 'NO',
+            character_maximum_length: null
           }, {
             column_name: 'name',
             data_type: 'character varying',
             is_nullable: 'YES',
+            character_maximum_length: 255
           }, {
             column_name: 'kind',
             data_type: 'character varying',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: 255
           }, {
             column_name: 'bio',
             data_type: 'text',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }, {
             column_name: 'dollars',
             data_type: 'integer',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }, {
             column_name: 'opened_at',
             data_type: 'timestamp with time zone',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }, {
             column_name: 'created_at',
             data_type: 'timestamp with time zone',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }, {
             column_name: 'updated_at',
             data_type: 'timestamp with time zone',
-            is_nullable: 'YES'
+            is_nullable: 'YES',
+            character_maximum_length: null
           }
         ];
 
