@@ -6,6 +6,7 @@ Fork and clone.
 cd wd-yowl
 npm install
 createdb yowl
+npm test
 ```
 
 [build-img]: https://img.shields.io/travis/ryansobol/wd-yowl/master.svg?style=flat-square
