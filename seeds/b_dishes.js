@@ -12,8 +12,8 @@ module.exports.seed = function(knex, Promise) {
       cost: 7.65,
       vegetarian_at: null,
       gluten_free_at: null,
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -24,8 +24,8 @@ module.exports.seed = function(knex, Promise) {
       cost: 8.43,
       vegetarian_at: new Date(1977, 3, 1),
       gluten_free_at: new Date(1977, 3, 1),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -35,9 +35,9 @@ module.exports.seed = function(knex, Promise) {
       description: 'Quite a unique dish, this is a fusion of classic pad Thai inside of a pot pie. Yummy and gluten-free! (Somehow)',
       cost: 7.75,
       vegetarian_at: null,
-      gluten_free_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      gluten_free_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -48,8 +48,8 @@ module.exports.seed = function(knex, Promise) {
       cost: 9.99,
       vegetarian_at: null,
       gluten_free_at: null,
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -59,9 +59,9 @@ module.exports.seed = function(knex, Promise) {
       description: 'A whole heap of gluten-free nachos covered in gluten-free nacho cheese, jalapenos, and beans.',
       cost: 8.95,
       vegetarian_at: null,
-      gluten_free_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      gluten_free_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -72,8 +72,8 @@ module.exports.seed = function(knex, Promise) {
       cost: 11.25,
       vegetarian_at: null,
       gluten_free_at: null,
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -84,8 +84,8 @@ module.exports.seed = function(knex, Promise) {
       cost: 9.50,
       vegetarian_at: null,
       gluten_free_at: null,
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('dishes').insert({
@@ -94,11 +94,10 @@ module.exports.seed = function(knex, Promise) {
       name: 'Vegetarian Meatball Sammie',
       description: 'Delicious Italian bread loaded up with a twist on our classic meatspheres, we use Tofurkey instead!',
       cost: 12.00,
-      vegetarian_at: new Date(2000, 5, 20),
+      vegetarian_at: new Date('2000-05-20 00:00:00 UTC'),
       gluten_free_at: null,
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     })
-
   );
 };

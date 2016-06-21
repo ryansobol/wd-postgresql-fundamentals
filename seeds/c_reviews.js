@@ -10,8 +10,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 1,
       rating: '2',
       comment: "The killer chili dawg was not kidding around. It killed my spirit and because of that I will not be returning to Hal's",
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -20,8 +20,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 3,
       rating: '4',
       comment: "Joe's burrito is one of the best I've had in town! I can't wait to tell all my friends about it!",
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -30,8 +30,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 2,
       rating: '1',
       comment: "Danny Boy's Pad Thai Pie was one of the most revolting things I've ever had the displeasure of eating. I do not recommend.",
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -40,8 +40,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 3,
       rating: '5',
       comment: "The Mosquito Burrito was incredible! I can't wait to go back to Joe's again and try the rest of their menu!",
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -50,8 +50,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 1,
       rating: '2',
       comment: "Hal's is one of my least favorite places. The staff was rude and I definitely saw some ants! I do not recommmend.",
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -60,8 +60,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 4,
       rating: '4',
       comment: 'I had the Orange Chicken, and oh boy! It was great. I enjoyed every second of it!',
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -70,8 +70,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 5,
       rating: '1',
       comment: 'Benny really needs to stick to the meat. I had the vegetarian meatball sandwich and could hardly make it through. What was that stuff in the meatballs?',
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reviews').insert({
@@ -80,8 +80,8 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 5,
       rating: '5',
       comment: 'A friend of mine hated the vegetarian options so I went with the classic meatballs. They were incredible! I even snuck some home with me in a plastic bag.',
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     })
   );
 };

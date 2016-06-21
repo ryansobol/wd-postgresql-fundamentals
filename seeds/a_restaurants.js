@@ -11,8 +11,8 @@ module.exports.seed = function(knex, Promise) {
       bio: "Hal's is the place for all your burgers and dawg needs.",
       dollars: '1',
       opened_at: new Date(1977, 3, 1),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
      knex('restaurants').insert({
@@ -22,8 +22,8 @@ module.exports.seed = function(knex, Promise) {
        bio: "You can't believe what this amazing Thai Irish pub fusion creates. Trust us, you'll love it.",
        dollars: '2',
        opened_at: new Date(2015,11,31),
-       created_at: new Date(2000, 5, 20),
-       updated_at: new Date(2000, 5, 20)
+       created_at: new Date('2000-05-20 00:00:00 UTC'),
+       updated_at: new Date('2000-05-20 00:00:00 UTC')
      }),
 
      knex('restaurants').insert({
@@ -33,8 +33,8 @@ module.exports.seed = function(knex, Promise) {
        bio: "Not the best burrito in town, if you want better, try Jose's.",
        dollars: '1',
        opened_at: new Date(1997, 7, 22),
-       created_at: new Date(2000, 5, 20),
-       updated_at: new Date(2000, 5, 20)
+       created_at: new Date('2000-05-20 00:00:00 UTC'),
+       updated_at: new Date('2000-05-20 00:00:00 UTC')
      }),
 
      knex('restaurants').insert({
@@ -44,8 +44,8 @@ module.exports.seed = function(knex, Promise) {
        bio: 'A hidden gem in the Pacific Northwest. Upscale dining with an incredible menu and great wait staff.',
        dollars: '4',
        opened_at: new Date(1991, 3, 8),
-       created_at: new Date(2000, 5, 20),
-       updated_at: new Date(2000, 5, 20)
+       created_at: new Date('2000-05-20 00:00:00 UTC'),
+       updated_at: new Date('2000-05-20 00:00:00 UTC')
      }),
 
      knex('restaurants').insert({
@@ -55,8 +55,8 @@ module.exports.seed = function(knex, Promise) {
        bio: 'The best meatballs in town! Affordable and tasty, these meatballs will have you coming back for more.',
        dollars: '3',
        opened_at: new Date(2004, 10, 17),
-       created_at: new Date(2000, 5, 20),
-       updated_at: new Date(2000, 5, 20)
+       created_at: new Date('2000-05-20 00:00:00 UTC'),
+       updated_at: new Date('2000-05-20 00:00:00 UTC')
      })
   );
 };

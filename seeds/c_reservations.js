@@ -10,9 +10,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 1,
       wants_vegetarian: false,
       wants_gluten_free: true,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reservations').insert({
@@ -21,9 +21,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 2,
       wants_vegetarian: true,
       wants_gluten_free: false,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reservations').insert({
@@ -32,9 +32,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 3,
       wants_vegetarian: false,
       wants_gluten_free: false,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reservations').insert({
@@ -43,9 +43,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 5,
       wants_vegetarian: true,
       wants_gluten_free: false,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reservations').insert({
@@ -54,9 +54,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 4,
       wants_vegetarian: false,
       wants_gluten_free: true,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     }),
 
     knex('reservations').insert({
@@ -65,9 +65,9 @@ module.exports.seed = function(knex, Promise) {
       restaurant_id: 5,
       wants_vegetarian: false,
       wants_gluten_free: false,
-      confirmed_at: new Date(2000, 5, 20),
-      created_at: new Date(2000, 5, 20),
-      updated_at: new Date(2000, 5, 20)
+      confirmed_at: new Date('2000-05-20 00:00:00 UTC'),
+      created_at: new Date('2000-05-20 00:00:00 UTC'),
+      updated_at: new Date('2000-05-20 00:00:00 UTC')
     })
   );
 };

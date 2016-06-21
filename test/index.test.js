@@ -57,8 +57,8 @@ suite('index', () => {
         bio: "Hal's is the place for all your burgers and dawg needs.",
         dollars: '1',
         opened_at: new Date(1977, 3, 1),
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       },
       {
         id: 2,
@@ -67,8 +67,8 @@ suite('index', () => {
         bio: "You can't believe what this amazing Thai Irish pub fusion creates. Trust us, you'll love it.",
         dollars: '2',
         opened_at: new Date(2015,11,31),
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       },
       {
         id: 3,
@@ -77,8 +77,8 @@ suite('index', () => {
         bio: "Not the best burrito in town, if you want better, try Jose's.",
         dollars: '1',
         opened_at: new Date(1997, 7, 22),
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       },
       {
         id: 4,
@@ -87,8 +87,8 @@ suite('index', () => {
         bio: 'A hidden gem in the Pacific Northwest. Upscale dining with an incredible menu and great wait staff.',
         dollars: '4',
         opened_at: new Date(1991, 3, 8),
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       },
       {
         id: 5,
@@ -97,8 +97,8 @@ suite('index', () => {
         bio: 'The best meatballs in town! Affordable and tasty, these meatballs will have you coming back for more.',
         dollars: '3',
         opened_at: new Date(2004, 10, 17),
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       }
     ];
 
@@ -139,8 +139,8 @@ suite('index', () => {
         id: 1,
         name: 'Johnny Walker',
         email: 'drinks@home.com',
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       }
     ];
 
@@ -158,8 +158,8 @@ suite('index', () => {
         state: 'WA',
         zipcode: '98501',
         phone: '206-555-8329',
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       }
     ];
 
@@ -191,8 +191,8 @@ suite('index', () => {
         cost: '7.65',
         vegetarian_at: null,
         gluten_free_at: null,
-        created_at: new Date(2000, 5, 20),
-        updated_at: new Date(2000, 5, 20)
+        created_at: new Date('2000-05-20 00:00:00 UTC'),
+        updated_at: new Date('2000-05-20 00:00:00 UTC')
       }
     ];
 
