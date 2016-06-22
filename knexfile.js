@@ -17,6 +17,17 @@ module.exports = {
     }
   },
 
+  part3: {
+    client: 'pg',
+    connection: 'postgres://localhost/pg_fun_part3',
+    migrations: {
+      directory: './migrations/part3'
+    },
+    seeds: {
+      directory: './seeds/part3'
+    }
+  },
+
   part4: {
     client: 'pg',
     connection: 'postgres://localhost/pg_fun_part4',

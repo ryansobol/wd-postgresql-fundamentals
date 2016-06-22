@@ -2,16 +2,18 @@
 
 const chai = require('chai');
 const {assert} = chai;
-const chaiAsPromised = require('chai-as-promised');
 const {suite, test} = require('mocha');
 
-const env = 'part4';
+const env = 'part2';
 const knexConfig = require('../knexfile')[env];
 const knex = require('knex')(knexConfig);
 
-const part = require('../lib/part2');
+const path = require('path');
+const extractSQL = require('./extract_sql');
+const sql = extractSQL(path.join(__dirname, '..', 'lib', 'part2.sql'));
 
-chai.use(chaiAsPromised);
+// const chaiAsPromised = require('chai-as-promised');
+// chai.use(chaiAsPromised);
 
 suite('part2', () => {
   before(function(done) {
@@ -35,7 +37,7 @@ suite('part2', () => {
   });
 
   test('select all restaurants', (done) => {
-    knex.raw(part.selectAllRestaurants())
+    knex.raw(sql.selectAllRestaurants)
       .then((result) => {
         const actual = result.rows;
         const expected = [
@@ -87,11 +89,180 @@ suite('part2', () => {
           }
         ];
 
-        for (const row of expected) {
-          assert.include(actual, row);
-        }
+        assert.sameDeepMembers(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 
-        return assert.sameDeepMembers(actual, expected)
+  test('select all restaurant names', (done) => {
+    knex.raw(sql.selectAllRestaurantNames)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [
+          { name: "Hal's Hot Dawg Stand" },
+          { name: "McDouglas's Irish Fusion Cafe" },
+          { name: "Joe's Burritos" },
+          { name: "Chan's China Palace" },
+          { name: "Benny's Meatballs" }
+        ];
+
+        assert.sameDeepMembers(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('select all customer names', (done) => {
+    knex.raw(sql.selectAllCustomerNames)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [
+          { name: 'Johnny Walker' },
+          { name: 'Percy DoLittle' },
+          { name: "Rainbow Huff'n'Puff" },
+          { name: 'Prince' },
+          { name: 'Sue "McGonnigal" Samwortherton' },
+          { name: 'Little baby Tomkins' }
+        ];
+
+        assert.sameDeepMembers(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      })
+  });
+
+  test('select customer by id', (done) => {
+    knex.raw(sql.selectCustomerById)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [{
+          id: 1,
+          name: 'Johnny Walker',
+          email: 'drinks@home.com',
+          created_at: new Date('2000-05-20 00:00:00 UTC'),
+          updated_at: new Date('2000-05-20 00:00:00 UTC')
+        }];
+
+        assert.deepEqual(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('select location by id', (done) => {
+    knex.raw(sql.selectLocationById)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [{
+          id: 3,
+          restaurant_id: 2,
+          street: '1289 Dublin Way',
+          city: 'Olympia',
+          state: 'WA',
+          zipcode: '98501',
+          phone: '206-555-8329',
+          created_at: new Date('2000-05-20 00:00:00 UTC'),
+          updated_at: new Date('2000-05-20 00:00:00 UTC')
+        }];
+
+        assert.deepEqual(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      })
+  });
+
+  test('select count of all locations by city', (done) => {
+    knex.raw(sql.selectCountOfAllLocationsByCity)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [{ count: '7' }];
+
+        assert.deepEqual(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('select distinct count of all locations by city', (done) => {
+    knex.raw(sql.selectDistinctCountOfAllLocationsByCity)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [{ count: '3' }];
+
+        assert.deepEqual(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      })
+  });
+
+  test('select cheapest dish', (done) => {
+    knex.raw(sql.selectCheapestDish)
+      .then((result) => {
+        const actual = result.rows;
+        const expected = [{
+          id: 1,
+          restaurant_id: 1,
+          name: 'the killer chili dawg',
+          description: 'The ULTIMATE test.',
+          cost: '7.65',
+          vegetarian_at: null,
+          gluten_free_at: null,
+          created_at: new Date('2000-05-20 00:00:00 UTC'),
+          updated_at: new Date('2000-05-20 00:00:00 UTC')
+        }];
+
+        assert.deepEqual(actual, expected);
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test('update customer name', (done) => {
+    knex.raw(sql.updateCustomerName)
+      .then((result) => {
+        const actual = result.rowCount;
+        const expected = 1;
+
+        return assert.equal(actual, expected);
+      })
+      .then(() => {
+        return knex('customers')
+          .where('name', 'Little baby Tomkins')
+          .then((actual) => {
+            return assert.deepEqual(actual, []);
+          });
+      })
+      .then(() => {
+        return knex('customers')
+          .where('name', 'Big Tom Tomkins')
+          .then((actual) => {
+            const expected = [{
+              id: 6,
+              name: 'Big Tom Tomkins',
+              email: 'whaaaaa@ups.com',
+              created_at: new Date('2000-05-20 00:00:00 UTC'),
+              updated_at: new Date('2000-05-20 00:00:00 UTC')
+            }];
+
+            return assert.deepEqual(actual, expected);
+          });
       })
       .then(() => {
         done();
@@ -101,169 +272,64 @@ suite('part2', () => {
       });
   });
 
-  // test('select all restaurant names', () => {
-  //   const actual = part.selectAllRestaurantNames(knex);
-  //   const expected = [
-  //     { name: "Hal's Hot Dawg Stand" },
-  //     { name: "McDouglas's Irish Fusion Cafe" },
-  //     { name: "Joe's Burritos" },
-  //     { name: "Chan's China Palace" },
-  //     { name: "Benny's Meatballs" }
-  //   ];
-  //
-  //   return assert.eventually.sameDeepMembers(actual, expected);
-  // });
-  //
-  // test('select all customer names', () => {
-  //   const actual = part.selectAllCustomerNames(knex);
-  //   const expected = [
-  //     { name: 'Johnny Walker' },
-  //     { name: 'Percy DoLittle' },
-  //     { name: "Rainbow Huff'n'Puff" },
-  //     { name: 'Prince' },
-  //     { name: 'Sue "McGonnigal" Samwortherton' },
-  //     { name: 'Little baby Tomkins' }
-  //   ];
-  //
-  //   return assert.eventually.sameDeepMembers(actual, expected);
-  // });
-  //
-  // test('select customer by id', () => {
-  //   const actual = part.selectCustomerById(knex);
-  //   const expected = [
-  //     {
-  //       id: 1,
-  //       name: 'Johnny Walker',
-  //       email: 'drinks@home.com',
-  //       created_at: new Date('2000-05-20 00:00:00 UTC'),
-  //       updated_at: new Date('2000-05-20 00:00:00 UTC')
-  //     }
-  //   ];
-  //
-  //   return assert.eventually.deepEqual(actual, expected);
-  // });
-  //
-  // test('select location by id', () => {
-  //   const actual = part.selectLocationById(knex);
-  //   const expected = [
-  //     {
-  //       id: 3,
-  //       restaurant_id: 2,
-  //       street: '1289 Dublin Way',
-  //       city: 'Olympia',
-  //       state: 'WA',
-  //       zipcode: '98501',
-  //       phone: '206-555-8329',
-  //       created_at: new Date('2000-05-20 00:00:00 UTC'),
-  //       updated_at: new Date('2000-05-20 00:00:00 UTC')
-  //     }
-  //   ];
-  //
-  //   return assert.eventually.deepEqual(actual, expected);
-  // });
-  //
-  // test('select count of location cities', () => {
-  //   const actual = part.selectCountOfLocationCities(knex);
-  //   const expected = [{ count: '7' }];
-  //
-  //   return assert.eventually.deepEqual(actual, expected);
-  // });
-  //
-  // test('select distinct count of location cities', () => {
-  //   const actual = part.selectDistinctCountOfLocationCities(knex);
-  //   const expected = [{ count: '3' }];
-  //
-  //   return assert.eventually.deepEqual(actual, expected);
-  // });
-  //
-  // test('select cheapest dish', () => {
-  //   const actual = part.selectCheapestDish(knex);
-  //   const expected = [
-  //     {
-  //       id: 1,
-  //       restaurant_id: 1,
-  //       name: 'the killer chili dawg',
-  //       description: 'The ULTIMATE test.',
-  //       cost: '7.65',
-  //       vegetarian_at: null,
-  //       gluten_free_at: null,
-  //       created_at: new Date('2000-05-20 00:00:00 UTC'),
-  //       updated_at: new Date('2000-05-20 00:00:00 UTC')
-  //     }
-  //   ];
-  //
-  //   return assert.eventually.deepEqual(actual, expected);
-  // });
-  //
-  // // TODO: write insert tests here
-  //
-  // test('update customer name', (done) => {
-  //   part.updateCustomerName(knex)
-  //     .then((updateActual) => {
-  //       return assert.equal(updateActual, 1);
-  //     })
-  //     .then(() => {
-  //       return knex('customers').select()
-  //         .where('name', 'Little baby Tomkins')
-  //         .then((actual) => {
-  //           return assert.deepEqual(actual, []);
-  //         });
-  //     })
-  //     .then(() => {
-  //       return knex('customers').select()
-  //         .where('name', 'Big Tom Tomkins')
-  //         .then((actual) => {
-  //           const expected = [
-  //             {
-  //               id: 6,
-  //               name: 'Big Tom Tomkins',
-  //               email: 'whaaaaa@ups.com',
-  //               created_at: new Date('2000-05-20 00:00:00 UTC'),
-  //               updated_at: new Date('2000-05-20 00:00:00 UTC')
-  //             }
-  //           ];
-  //
-  //           return assert.deepEqual(actual, expected);
-  //         });
-  //     })
-  //     .then(() => {
-  //       done();
-  //     })
-  //     .catch((err) => {
-  //       done(err);
-  //     });
-  // });
-  //
-  // test('update location by id', () => {
-  //   const actual = part.updateLocationById(knex);
-  //   const expected = 1;
-  //
-  //   return assert.eventually.equal(actual, expected);
-  // });
-  //
+  test('update location by id', (done) => {
+    knex.raw(sql.updateLocationById)
+      .then((result) => {
+        const actual = result.rowCount;
+        const expected = 1;
+
+        return assert.equal(actual, expected);
+      })
+      .then(() => {
+        return knex('locations')
+          .where('id', 3)
+          .then((actual) => {
+            const expected = [{
+              id: 3,
+              restaurant_id: 2,
+              street: '555 No Way',
+              city: 'Olympia',
+              state: 'WA',
+              zipcode: '98501',
+              phone: '206-555-8329',
+              created_at: new Date('2000-05-20 00:00:00 UTC'),
+              updated_at: new Date('2000-05-20 00:00:00 UTC')
+            }];
+
+            return assert.deepEqual(actual, expected);
+          });
+      })
+      .then(() => {
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
   // test('update dish with chicken', () => {
-  //   const actual = part.updateDishWithChx(knex);
+  //   const actual = sql.updateDishWithChx(knex);
   //   const expected = 1;
   //
   //   return assert.eventually.equal(actual, expected);
   // });
   //
   // test('delete customer', () => {
-  //   const actual = part.deleteCustomer(knex);
+  //   const actual = sql.deleteCustomer(knex);
   //   const expected = 1;
   //
   //   return assert.eventually.equal(actual, expected);
   // });
   //
   // test('delete restaurants by dollar', () => {
-  //   const actual = part.deleteRestaurantsByDollar(knex);
+  //   const actual = sql.deleteRestaurantsByDollar(knex);
   //   const expected = 2;
   //
   //   return assert.eventually.equal(actual, expected);
   // });
   //
   // test('delete all vegetarian dishes', () => {
-  //   const actual = part.deleteAllVegetarianDishes(knex);
+  //   const actual = sql.deleteAllVegetarianDishes(knex);
   //   const expected = 2;
   //
   //   return assert.eventually.equal(actual, expected);

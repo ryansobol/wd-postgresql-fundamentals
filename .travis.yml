@@ -6,4 +6,5 @@ services:
 before_script:
   - createdb pg_fun_part1 -U postgres
   - createdb pg_fun_part2 -U postgres
+  - createdb pg_fun_part3 -U postgres
   - createdb pg_fun_part4 -U postgres

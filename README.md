@@ -7,6 +7,7 @@ cd wd-postgresql-fundamentals
 npm install
 createdb pg_fun_part1
 createdb pg_fun_part2
+createdb pg_fun_part3
 createdb pg_fun_part4
 npm test
 ```
