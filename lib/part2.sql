@@ -57,3 +57,9 @@ Update the id = 3 location's street to '555 No Way' and city to 'Olympia'
 */
 
 UPDATE locations SET street = '555 No Way', city = 'Olympia' WHERE id = 3;
+
+/* Exercise updateDishWithChicken
+Update "Melinda's salad blend" to not be a vegetarian
+*/
+
+-- UPDATE dishes SET vegetarian_at = NULL WHERE name = 'Melinda''s salad blend';

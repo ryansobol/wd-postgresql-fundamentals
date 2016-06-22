@@ -308,7 +308,7 @@ suite('part2', () => {
   });
 
   // test('update dish with chicken', () => {
-  //   const actual = sql.updateDishWithChx(knex);
+  //   const actual = sql.updateDishWithChicken(knex);
   //   const expected = 1;
   //
   //   return assert.eventually.equal(actual, expected);
